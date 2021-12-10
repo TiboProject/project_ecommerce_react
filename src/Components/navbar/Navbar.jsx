@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Constant } from "../../Constant";
+import { FaOpencart } from "react-icons/fa";
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
-    console.log(isOpen);
     var location = document.location.href;
     var lastSlash = location.substring(location.lastIndexOf("/"));
+
+    function cart() {
+        alert("panier");
+    }
+
     return (
         <>
             <nav className="bg-gray-800">
@@ -45,6 +50,15 @@ const Navbar = () => {
                                     >
                                         A propos de nous
                                     </a>
+                                    <button>
+                                        <FaOpencart color="white" size={25} onClick={cart} />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="text-gray-300 font-mono rounded border-2 hover:bg-white hover:text-gray-800"
+                                    >
+                                        Se connecter
+                                    </button>
                                 </div>
                             </div>
                         </div>
