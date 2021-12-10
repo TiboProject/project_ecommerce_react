@@ -1,20 +1,23 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import { Constant } from './Constant';
-import Home from './page/Home';
-import Landing from './page/Landing';
+import Navbar from './Components/navbar/Navbar';
+import Home from './Components/page/Home';
+import Landing from './Components/page/Landing';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path={Constant.PATHS.LANDING}>
-          <Landing/>
+          <Navbar />
+          <Landing />
         </Route>
         <Route exact path={Constant.PATHS.HOME}>
-          <Home/>
+          <Navbar />
+          <Home />
         </Route>
-        </Switch>
+      </Switch>
     </Router>
   );
 }
