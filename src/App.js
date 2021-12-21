@@ -4,6 +4,7 @@ import { Constant } from './Constant';
 import Navbar from './Components/navbar/Navbar';
 import Home from './Components/page/Home';
 import Landing from './Components/page/Landing';
+import ContactUs from './Components/page/ContactUs';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Route exact path={Constant.PATHS.HOME}>
           <Navbar />
           <Home />
+        </Route>
+        <Route exact path={Constant.PATHS.CONTACTUS}>
+          <Navbar/>
+          <ContactUs/>
         </Route>
       </Switch>
     </Router>

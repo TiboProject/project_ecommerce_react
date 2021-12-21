@@ -7,6 +7,8 @@ const Navbar = () => {
     console.log(isOpen);
     var location = document.location.href;
     var lastSlash = location.substring(location.lastIndexOf("/"));
+    console.log("Mon Url actuelle :" + location);
+console.log("Mon dernier slash :" + lastSlash);
     return (
         <>
             <nav className="bg-gray-800">
@@ -33,7 +35,7 @@ const Navbar = () => {
                                     </a>
 
                                     <a
-                                        href="https://github.com/TiboProject/project_ecommerce_react"
+                                        href={Constant.PATHS.CONTACTUS}
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Contactez nous
