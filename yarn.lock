@@ -1139,6 +1139,20 @@
   "resolved" "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.2.tgz"
   "version" "1.1.2"
 
+"@googlemaps/js-api-loader@^1.11.1":
+  "integrity" "sha512-wDsAvBcaW3Y7KXfig8grwJh8Wanh12J+SbJhi5DnjOOzL3Ssrz44KRNJ88Qgr67rTyCoa2VI5ImisfKcOBEEnQ=="
+  "resolved" "https://registry.npmjs.org/@googlemaps/js-api-loader/-/js-api-loader-1.12.12.tgz"
+  "version" "1.12.12"
+  dependencies:
+    "fast-deep-equal" "^3.1.3"
+
+"@googlemaps/react-wrapper@^1.1.18":
+  "integrity" "sha512-pcERc8AlLrkYpyOF8RMoE0Lzsw9hO9q0aZJ6KuJWm2PrSCkaLZo4HF9QsSH3FrTLAS/YE08n1OAlgpbNQ3tt4A=="
+  "resolved" "https://registry.npmjs.org/@googlemaps/react-wrapper/-/react-wrapper-1.1.18.tgz"
+  "version" "1.1.18"
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.11.1"
+
 "@hapi/address@2.x.x":
   "integrity" "sha512-QD1PhQk+s31P1ixsX0H0Suoupp3VMXzIVMSwobR3F3MSUO2YCV0B7xqLcUw/Bh8yuvd3LhpyqLQWTNcRmp6IdQ=="
   "resolved" "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz"
