@@ -4,6 +4,7 @@ import React from 'react';
  const Test = () => {
    // Pass the useFormik() hook initial form values and a submit function that will
    // be called when the form is submitted
+   <img src="/images/mailLogo.jpg" alt=""></img>
    const formik = useFormik({
      initialValues: {
        email: '',
