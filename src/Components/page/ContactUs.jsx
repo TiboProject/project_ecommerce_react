@@ -97,57 +97,57 @@ const ContactUs = () => {
 
             </div>
             <div class="bg-gradient-to-b from-gray-400 to-white-400 h-screen">
-            <div class="pt-8 ...">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Nos Réseaux Sociaux</div>
-                        <p class="text-gray-700 text-base">
-                            Suivez nous pour avoir accès à des codes promotions exclusif!
-                        </p>
+                <div class="pt-8 ...">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">Nos Réseaux Sociaux</div>
+                            <p class="text-gray-700 text-base">
+                                Suivez nous pour avoir accès à des codes promotions exclusif!
+                            </p>
+                        </div>
+
+                        <div class="px-6 pt-4 pb-2">
+
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"><BsFacebook /><button
+                                type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = 'https://fr-fr.facebook.com/login.php/';
+                                }}
+                            > -Facebook</button></span>
+
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> < BsInstagram /> <button
+                                type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = 'https://www.instagram.com/accounts/login/';
+                                }}
+                            > -Instagram</button> </span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsYoutube /><button
+                                type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = 'https://www.youtube.com/channel/UC0FiteeUtoMK2mNinV8WMtQ';
+                                }}
+                            > -Youtube</button></span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsTwitter /><button
+                                type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = 'https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZnIifQ%3D%3D%22%7D';
+                                }}
+                            > -Twitter</button></span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsLinkedin /><button
+                                type="button"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = 'https://fr.linkedin.com/company/connecter';
+                                }}
+                            > -Linkedin</button></span>
+
+
+                        </div>
                     </div>
-
-                    <div class="px-6 pt-4 pb-2">
-
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"><BsFacebook /><button
-                            type="button"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = 'https://fr-fr.facebook.com/login.php/';
-                            }}
-                        > -Facebook</button></span>
-
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> < BsInstagram /> <button
-                            type="button"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = 'https://www.instagram.com/accounts/login/';
-                            }}
-                        > -Instagram</button> </span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsYoutube /><button
-                            type="button"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = 'https://www.youtube.com/channel/UC0FiteeUtoMK2mNinV8WMtQ';
-                            }}
-                        > -Youtube</button></span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsTwitter /><button
-                            type="button"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = 'https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZnIifQ%3D%3D%22%7D';
-                            }}
-                        > -Twitter</button></span>
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 inline-flex items-center"> <BsLinkedin /><button
-                            type="button"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = 'https://fr.linkedin.com/company/connecter';
-                            }}
-                        > -Linkedin</button></span>
-
-
-                    </div>
-                            </div>
                 </div>
                 <div>
 
@@ -155,8 +155,8 @@ const ContactUs = () => {
                 </div>
 
                 <div class="grid place-items-center">
-                        <p> <img src="https://i.goopics.net/5rjoyv.png" alt="Example1" width="1000" height="800" /> </p>
-                    </div>
+                    <p> <img src="https://i.goopics.net/5rjoyv.png" alt="Example1" width="1000" height="800" /> </p>
+                </div>
 
             </div>
 

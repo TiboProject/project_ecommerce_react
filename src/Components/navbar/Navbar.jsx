@@ -11,8 +11,7 @@ const Navbar = () => {
     var location = document.location.href;
     ///ne prend que la fin de l'url
     var lastSlash = location.substring(location.lastIndexOf("/"));
-    console.log("Mon Url actuelle :" + location);
-console.log("Mon dernier slash :" + lastSlash);
+
 
     var priceFinal=0;
 
@@ -80,7 +79,7 @@ console.log("Mon dernier slash :" + lastSlash);
 
                                     <a
                                         href={Constant.PATHS.CONTACTUS}
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                        className={`hover:bg-gray-700 ${lastSlash === Constant.PATHS.CONTACTUS ? "text-white" : "text-gray-300"} px-3 py-2 rounded-md text-xl font-serif`}
                                     >
                                         Contactez nous
                                     </a>

@@ -5,7 +5,7 @@ const BackgroundLanding = ({ imageSrc, firstText, secondText }) => {
         <div class="w-full h-screen relative">
             <img src={imageSrc} alt="Dortmund fans" className="w-full h-full object-cover object-bottom" />
             <div className="w-1/2 h-1/2 absolute top-1/3 left-1/2 ">
-            <div class="relative flex-shrink-0 max-w-[95vw] overflow-hidden rounded-3xl ml-10">
+                <div class="relative flex-shrink-0 max-w-[95vw] overflow-hidden rounded-3xl ml-10">
                     <img
                         src="https://i.goopics.net/a39jmq.jpg"
                         alt=""
@@ -15,11 +15,11 @@ const BackgroundLanding = ({ imageSrc, firstText, secondText }) => {
                     <div class="relative h-96 w-full p-12 flex flex-col justify-between items-start">
                         <div>
                             <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
-                                Retrouvez d'autres articles des différents clubs de football
+                                Personnalisez votre maillot de votre club favori
                             </h2>
                         </div>
                         <a href="#" class="px-4 py-3 rounded-lg bg-white text-slate-900 text-sm font-medium">
-                            Recherchez vos articles favoris
+                            Personnalisez vos maillots
                         </a>
                     </div>
                 </div>
