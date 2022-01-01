@@ -81,8 +81,8 @@ const ContactUs = () => {
                                 rows="3"
                                 placeholder="Votre message"
                             ></textarea>
-                            <p class="text-gray-600 text-xs italic">veuillez remplir tout les champs.</p>
-                            <p class="text-gray-600 text-xs italic">Nous essayerons de vous aidez</p>
+                            <p class="text-gray-600 text-xs italic">Veuillez remplir tous les champs.</p>
+                            <p class="text-gray-600 text-xs italic">Votre message ne sera pas pris en compte le cas échéant</p>
                             <div class="py-8 ...">
                                 <div class="grid place-items-center">
                                     <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
@@ -102,7 +102,7 @@ const ContactUs = () => {
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2">Nos Réseaux Sociaux</div>
                             <p class="text-gray-700 text-base">
-                                Suivez nous pour avoir accès à des codes promotions exclusif!
+                                Suivez nous pour avoir accès à des codes promotions exclusifs!
                             </p>
                         </div>
 
