@@ -59,7 +59,7 @@ export const buttonArrowLanding = {
 export const firstCardLanding = {
     initial: {
        opacity:0,
-       x:200,
+       x:300,
       },
       animate: {
         x: 0,
@@ -75,7 +75,7 @@ export const firstCardLanding = {
 export const secondCardLanding = {
     initial: {
        opacity:0,
-       x:-200,
+       x:-300,
       },
       animate: {
         x: 0,
@@ -102,3 +102,5 @@ export const secondImageLanding = {
         }
     }
 }
+
+

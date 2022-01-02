@@ -1,9 +1,10 @@
 import { Constant } from "../../Constant";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { motion, useAnimation } from "framer-motion";
-import { buttonArrowLanding, firstCardLanding, imageLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding } from "../../VariantsForMotion";
+import { buttonArrowLanding, firstCardLanding, imageLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import useScrollBlock from "../../Hooks/useScrollBlock";
 
 
 const Landing = ({ imageSrc, imageSrc2 }) => {
@@ -24,14 +25,34 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
     const [refImageBackground, inViewImageBackground] = useInView();
     const [refCards, inViewCard] = useInView();
 
-    useEffect(()=>{
-        if(inViewImageBackground){
+    const windowWidth = window.innerWidth;
+
+    ///Variants
+    const titleLanding= {
+        animate: {
+            x: [0, -1960],
+            transition: {
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 5,
+                ease: "linear",
+              },
+            },
+          },
+    }
+
+    const[blockScroll, allowScroll] = useScrollBlock();
+    
+    useEffect(() => {
+        if (inViewImageBackground) {
             controlsImageBackground.start("animate");
         }
-        if(inViewCard){
+        if (inViewCard) {
             controlsCards.start("animate");
         }
     });
+    
 
     return (
         <>
@@ -84,16 +105,17 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
 
                         >
                             <motion.button
-                            whileHover={{ scale: 1.2 }}
-                            onClick={executeScroll}
+                                whileHover={{ scale: 1.2 }}
+                                onClick={executeScroll}
                             >
-                            <RiArrowDownSLine size={90} color="#8A0C0C" /></motion.button>
+                                <RiArrowDownSLine size={90} color="#8A0C0C" />
+                            </motion.button>
                         </motion.div>
                     </div>
                 </div>
             </div>
             <div ref={firstScroll} class="w-full h-screen relative">
-            <motion.img
+                <motion.img
                     ref={refImageBackground}
                     src={imageSrc2}
                     alt="ultras"
@@ -104,59 +126,71 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
                 >
                 </motion.img>
                 <div className="w-1/2 h-1/2 absolute top-1/3 left-1/2 ">
-                <motion.div
+                    <motion.div
                         ref={refCards}
                         variants={firstCardLanding}
                         initial="initial"
                         animate={controlsCards}
                     >
-                    <div class="relative flex-shrink-0 max-w-[95vw] overflow-hidden rounded-3xl ml-10">
-                        
-                        <img
-                            src="https://i.goopics.net/a39jmq.jpg"
-                            alt=""
-                            class="absolute inset-0 w-full h-full object-cover object-right-top"
-                        />
-                        <div class="absolute inset-0 h-full w-full bg-gradient-to-br from-black/75" ></div>
-                        <div class="relative h-96 w-full p-12 flex flex-col justify-between items-start">
-                            <div>
-                                <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
-                                    Personnalisez le maillot de votre club favori
-                                </h2>
+                        <div class="relative flex-shrink-0 max-w-[95vw] overflow-hidden rounded-3xl ml-10">
+
+                            <img
+                                src="https://i.goopics.net/a39jmq.jpg"
+                                alt=""
+                                class="absolute inset-0 w-full h-full object-cover object-right-top"
+                            />
+                            <div class="absolute inset-0 h-full w-full bg-gradient-to-br from-black/75" ></div>
+                            <div class="relative h-96 w-full p-12 flex flex-col justify-between items-start">
+                                <div>
+                                    <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
+                                        Personnalisez le maillot de votre club favori
+                                    </h2>
+                                </div>
+                                <a href="#" class="px-4 py-3 rounded-lg bg-white text-slate-900 text-sm font-medium">
+                                    Personnalisez vos maillots
+                                </a>
                             </div>
-                            <a href="#" class="px-4 py-3 rounded-lg bg-white text-slate-900 text-sm font-medium">
-                                Personnalisez vos maillots
-                            </a>
                         </div>
-                    </div>
                     </motion.div>
                 </div>
 
                 <div className="w-1/2 h-1/2 absolute top-1/3 right-1/2">
-                <motion.div
+                    <motion.div
                         ref={refCards}
                         variants={secondCardLanding}
                         initial="initial"
                         animate={controlsCards}
                     >
-                    <div class="relative flex-shrink-0 overflow-hidden rounded-3xl mr-10">
-                        <img
-                            src="https://i.goopics.net/6e9375.png"
-                            alt=""
-                            class="absolute inset-0 w-full h-full object-cover object-top"
-                        />
-                        <div class="relative h-96 w-70 p-12 flex flex-col justify-between items-start">
-                            <div>
-                                <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
-                                    Retrouvez tous les maillots de football de vos stars préférées
-                                </h2>
+                        <div class="relative flex-shrink-0 overflow-hidden rounded-3xl mr-10">
+                            <img
+                                src="https://i.goopics.net/6e9375.png"
+                                alt=""
+                                class="absolute inset-0 w-full h-full object-cover object-top"
+                            />
+                            <div class="relative h-96 w-70 p-12 flex flex-col justify-between items-start">
+                                <div>
+                                    <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
+                                        Retrouvez tous les maillots de football de vos stars préférées
+                                    </h2>
+                                </div>
+                                <a href={Constant.PATHS.HOME} class="px-2 py-3 rounded-lg bg-white text-slate-900 text-sm font-medium">
+                                    Recherchez votre maillot favori
+                                </a>
                             </div>
-                            <a href={Constant.PATHS.HOME} class="px-2 py-3 rounded-lg bg-white text-slate-900 text-sm font-medium">
-                                Recherchez votre maillot favori
-                            </a>
                         </div>
-                    </div>
                     </motion.div>
+                </div>
+            </div>
+            <div class="w-full h-screen relative">
+                <img src="https://i.goopics.net/k3yy5g.jpg" alt="" class="w-full h-full object-cover"/>
+                <div className="w-auto h-auto absolute top-20 -right-56 max-w-full">
+                <motion.p
+                            className="whitespace-nowrap text-center text-white italic font-mono text-7xl align-align-middle"
+                            variants={titleLanding}
+                            animate="animate"
+                            >
+                            OUIAHAH
+                        </motion.p>
                 </div>
             </div>
         </>
