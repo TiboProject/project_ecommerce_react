@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { buttonArrowLanding, firstCardLanding, imageLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import useScrollBlock from "../../Hooks/useScrollBlock";
+import { VscSignIn } from "react-icons/vsc";
 
 
 const Landing = ({ imageSrc, imageSrc2 }) => {
@@ -28,22 +28,20 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
     const windowWidth = window.innerWidth;
 
     ///Variants
-    const titleLanding= {
+    const titleLanding = {
         animate: {
-            x: [0, -1960],
+            x: [1000, -1960],
             transition: {
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 5,
-                ease: "linear",
-              },
+                x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 7,
+                    ease: "linear",
+                },
             },
-          },
+        },
     }
 
-    const[blockScroll, allowScroll] = useScrollBlock();
-    
     useEffect(() => {
         if (inViewImageBackground) {
             controlsImageBackground.start("animate");
@@ -52,7 +50,7 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
             controlsCards.start("animate");
         }
     });
-    
+
 
     return (
         <>
@@ -182,15 +180,45 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
                 </div>
             </div>
             <div class="w-full h-screen relative">
-                <img src="https://i.goopics.net/k3yy5g.jpg" alt="" class="w-full h-full object-cover"/>
-                <div className="w-auto h-auto absolute top-20 -right-56 max-w-full">
-                <motion.p
-                            className="whitespace-nowrap text-center text-white italic font-mono text-7xl align-align-middle"
-                            variants={titleLanding}
-                            animate="animate"
+                <img src="https://i.goopics.net/k3yy5g.jpg" alt="" class="w-full h-full object-cover" />
+                <div className="w-auto h-auto absolute top-9 max-w-full">
+
+                    <p className="whitespace-nowrap text-center text-white italic font-mono text-10xl">
+                        EXPERIENCE
+                    </p>
+                </div>
+                <div className="w-auto h-auto absolute top-52 right-0 max-w-full">
+                    <motion.p
+                        className="whitespace-nowrap text-center text-white italic font-mono text-10xl "
+                        variants={titleLanding}
+                        animate="animate"
+                    >
+                        SHOPPING
+                    </motion.p>
+                </div>
+                <div className="w-auto h-auto absolute top-96 max-w-full">
+                    <p className="whitespace-nowrap text-center text-white italic font-mono text-10xl">
+                        INOUBLIABLE
+                    </p>
+                </div>
+                <div className="w-auto h-auto absolute bottom-11 right-9">
+                    <div class="w-full max-w-lg relative mx-auto my-auto rounded-xl shadow-lg  bg-red-900 ">
+                        <div class="">
+                            <div class="text-center p-1 flex-auto justify-center">
+                                <VscSignIn className="w-16 h-16 flex items-center mx-auto" color="white" />
+                                <h2 class="text-xl font-bold text-white">Connectez vous pour profiter d'avantages exclusifs</h2>
+                            </div>
+                                <div class="p-3  mt-2 text-center space-x-4 md:block">
+                                <motion.button
+                                whileHover={{ scale: 1.2 }}
+                                onClick={executeScroll}
+                                class="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
                             >
-                            OUIAHAH
-                        </motion.p>
+                                    Se connecter
+                                </motion.button>
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
