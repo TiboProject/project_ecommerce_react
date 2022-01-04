@@ -7,24 +7,29 @@ import Landing from './Components/page/Landing';
 import ContactUs from './Components/page/ContactUs';
 import Test from './test';
 
+
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path={Constant.PATHS.LANDING}>
           <Navbar />
+
           <Landing />
         </Route>
         <Route exact path={Constant.PATHS.HOME}>
           <Navbar />
+
           <Home />
         </Route>
         <Route exact path={Constant.PATHS.CONTACTUS}>
-          <Navbar/>
-          <ContactUs/>
+          <Navbar />
+          
+          <ContactUs />
+         
         </Route>
         <Route exact path="/Test">
-        <Test/>
+          <Test />
         </Route>
       </Switch>
     </Router>
