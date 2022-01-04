@@ -1,10 +1,11 @@
 import { Constant } from "../../Constant";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { motion, useAnimation } from "framer-motion";
-import { buttonArrowLanding, firstCardLanding, imageLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
+import { buttonArrowLanding, buttonReplayLanding, containerImages, firstCardLanding, imageBgLanding, imageLanding, imagesLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { VscSignIn } from "react-icons/vsc";
+import {MdOutlineReplay} from "react-icons/md";
 import "./Landing.css"
 
 const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
@@ -26,21 +27,6 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
     const [refCards, inViewCard] = useInView();
 
     const windowWidth = window.innerWidth;
-
-    ///Variants
-    const titleLanding = {
-        animate: {
-            x: [1000, -1960],
-            transition: {
-                x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 7,
-                    ease: "linear",
-                },
-            },
-        },
-    }
 
     useEffect(() => {
         if (inViewImageBackground) {
@@ -183,13 +169,13 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                 <img src="https://i.goopics.net/k3yy5g.jpg" alt="" class="w-full h-full object-cover" />
                 <div className="w-auto h-auto absolute top-9 max-w-full">
 
-                    <p className="whitespace-nowrap text-center text-white italic font-mono text-10xl">
+                    <p className="whitespace-nowrap text-center text-white italic font-mono md:text-8xl lg:text-10xl">
                         EXPERIENCE
                     </p>
                 </div>
                 <div className="w-auto h-auto absolute top-52 right-0 max-w-full">
                     <motion.p
-                        className="text-center text-white italic font-mono text-10xl "
+                        className="text-center text-white italic font-mono md:text-8xl lg:text-10xl"
                         variants={titleLanding}
                         animate="animate"
                     >
@@ -197,7 +183,7 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                     </motion.p>
                 </div>
                 <div className="w-auto h-auto absolute top-96 max-w-full">
-                    <p className="whitespace-nowrap text-center text-white italic font-mono text-10xl">
+                    <p className="whitespace-nowrap text-center text-white italic font-mono md:text-8xl lg:text-10xl">
                         INOUBLIABLE
                     </p>
                 </div>
@@ -211,8 +197,7 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                             <div class="p-3  mt-2 text-center space-x-4 md:block">
                                 <motion.button
                                     whileHover={{ scale: 1.2 }}
-                                    onClick={executeScroll}
-                                    class="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
+                                    className="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
                                 >
                                     Se connecter
                                 </motion.button>
@@ -221,26 +206,65 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-screen relative">
+            <motion.div
+                className="w-full h-screen relative"
+                variants={containerImages}
+                initial="hidden"
+                animate="show"
+            >
                 <motion.img
                     src={imageSrc3}
                     alt="fans"
                     className="w-full h-full object-cover"
-                    variants={imageLanding}
-                    initial="initial"
-                    animate="animate"
+                    variants={imageBgLanding}
                 >
                 </motion.img>
                 <div className="w-auto h-auto absolute top-1/4 left-28 max-w-full">
-                    <img className="w-full h-auto max-w-sm rounded" src="https://i.goopics.net/0n0ifp.jpg"/>
+                    <motion.img
+                        variants={imagesLanding}
+                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-sm rounded-3xl object-cover"
+                        src="https://i.goopics.net/1yvks1.jpg"
+                    />
+                    <div className="grid place-items-center">
+                        <motion.button 
+                        class="inline-flex items-center justify-center w-1/2 h-10 mr-2 transition-colors duration-150 bg-blue-900 rounded-full focus:shadow-outline hover:bg-blue-700"
+                        variants={buttonReplayLanding}
+                        >
+                        <MdOutlineReplay size={25} color="white"/>
+                        </motion.button>
+                    </div>
+                </div>
+                <div className="w-auto h-auto absolute bottom-14 right-48 max-w-full">
+                    <motion.img
+                        variants={imagesLanding}
+                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-md rounded-3xl object-cover"
+                        src="https://i.goopics.net/sb7lsy.jpg" />
+                </div>
+                <div className="w-auto h-auto absolute top-11 left-1/3 flex items-center justify-center max-w-full">
+                    <motion.img
+                        variants={imagesLanding}
+                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-lg rounded-3xl object-cover"
+                        src="https://i.goopics.net/4kk652.jpg"
+                    />
                 </div>
                 <div className="w-auto h-auto absolute top-14 right-28 max-w-full">
-                    <img className="w-full h-auto max-w-xs rounded" src="https://i.goopics.net/1yvks1.jpg"/>
+                    <motion.img
+                        variants={imagesLanding}
+                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
+                        src="https://i.goopics.net/0n0ifp.jpg"
+                    />
                 </div>
-                <div className="w-auto h-auto absolute -top-80 inset-0 flex items-center justify-center max-w-full">
-                    <img className="w-full h-auto max-w-lg rounded" src="https://i.goopics.net/4kk652.jpg"/>
+                <div className="w-auto h-auto absolute bottom-0 right-1/2 max-w-full">
+                    <motion.img
+                        variants={imagesLanding}
+                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
+                        src="https://i.goopics.net/bfneyl.jpg"
+                    />
                 </div>
-            </div>
+
+            </motion.div>
+
+
         </>
     )
 }

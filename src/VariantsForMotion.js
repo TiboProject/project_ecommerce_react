@@ -103,4 +103,61 @@ export const secondImageLanding = {
     }
 }
 
+export const containerImages = {
+    show: {
+      transition: {
+        staggerChildren: 1.0,
+      },
+    },
+  };
 
+export const imagesLanding = {
+    hidden: { opacity: 0, y: 200 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: [0.6, 0.01, -0.05, 0.95],
+        duration: 1.0,
+      },
+    },
+  };
+
+  export const imageBgLanding = {
+    hidden: { opacity: 0, x: - 500 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: [0.6, 0.01, -0.05, 0.95],
+        duration: 1.5,
+      },
+    },
+  };
+
+  export const buttonReplayLanding = {
+    hidden: { opacity: 0, y: 200 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: [0.6, 0.01, -0.05, 0.95],
+        duration: 0.35,
+      },
+    },
+  };
+
+ 
+ export const titleLanding = {
+    animate: {
+        x: [1000, -1960],
+        transition: {
+            x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 7,
+                ease: "linear",
+            },
+        },
+    },
+}
