@@ -5,9 +5,9 @@ import { buttonArrowLanding, firstCardLanding, imageLanding, secondCardLanding, 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { VscSignIn } from "react-icons/vsc";
+import "./Landing.css"
 
-
-const Landing = ({ imageSrc, imageSrc2 }) => {
+const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
 
     ///States
 
@@ -189,7 +189,7 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
                 </div>
                 <div className="w-auto h-auto absolute top-52 right-0 max-w-full">
                     <motion.p
-                        className="whitespace-nowrap text-center text-white italic font-mono text-10xl "
+                        className="text-center text-white italic font-mono text-10xl "
                         variants={titleLanding}
                         animate="animate"
                     >
@@ -208,17 +208,37 @@ const Landing = ({ imageSrc, imageSrc2 }) => {
                                 <VscSignIn className="w-16 h-16 flex items-center mx-auto" color="white" />
                                 <h2 class="text-xl font-bold text-white">Connectez vous pour profiter d'avantages exclusifs</h2>
                             </div>
-                                <div class="p-3  mt-2 text-center space-x-4 md:block">
+                            <div class="p-3  mt-2 text-center space-x-4 md:block">
                                 <motion.button
-                                whileHover={{ scale: 1.2 }}
-                                onClick={executeScroll}
-                                class="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
-                            >
+                                    whileHover={{ scale: 1.2 }}
+                                    onClick={executeScroll}
+                                    class="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
+                                >
                                     Se connecter
                                 </motion.button>
-                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="w-full h-screen relative">
+                <motion.img
+                    src={imageSrc3}
+                    alt="fans"
+                    className="w-full h-full object-cover"
+                    variants={imageLanding}
+                    initial="initial"
+                    animate="animate"
+                >
+                </motion.img>
+                <div className="w-auto h-auto absolute top-1/4 left-28 max-w-full">
+                    <img className="w-full h-auto max-w-sm rounded" src="https://i.goopics.net/0n0ifp.jpg"/>
+                </div>
+                <div className="w-auto h-auto absolute top-14 right-28 max-w-full">
+                    <img className="w-full h-auto max-w-xs rounded" src="https://i.goopics.net/1yvks1.jpg"/>
+                </div>
+                <div className="w-auto h-auto absolute -top-80 inset-0 flex items-center justify-center max-w-full">
+                    <img className="w-full h-auto max-w-lg rounded" src="https://i.goopics.net/4kk652.jpg"/>
                 </div>
             </div>
         </>

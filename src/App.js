@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route exact path={Constant.PATHS.LANDING}>
           <Navbar />
-          <Landing imageSrc="https://i.goopics.net/807y83.jpg" imageSrc2="https://i.goopics.net/ouubgq.jpg"/>
+          <Landing imageSrc="https://i.goopics.net/807y83.jpg" imageSrc2="https://i.goopics.net/ouubgq.jpg" imageSrc3="https://i.goopics.net/2nhie8.jpg"/>
         </Route>
         <Route exact path={Constant.PATHS.HOME}>
           <Navbar />

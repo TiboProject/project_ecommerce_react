@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <a
-                                            href={Constant.PATHS.LANDING}
+                                            href={Constant.PATHS.HOME}
                                             className="text-gray-300 font-extrabold font-sans text-xl"
                                         >
                                             Accueil
