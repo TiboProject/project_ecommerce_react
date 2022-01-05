@@ -29,7 +29,7 @@ const ContactUs = () => {
                                 <label class="block uppercase tracking-wide text-white-700 text-xs font-bold mb-2" for="grid-first-name">
                                     Prénom
                                 </label>
-                                <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" required />
+                                <input class="appearance-none block w-full bg-white-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" required />
                                 
                             </div>
                             <div class="w-full md:w-1/2 px-3">
@@ -52,7 +52,7 @@ const ContactUs = () => {
                                 <label class="block uppercase tracking-wide text-white-700 text-xs font-bold mb-2" for="grid-first-name">
                                     Objet
                                 </label>
-                                <input class="appearance-none block w-full bg-white-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-objet" type="text" placeholder="Commande" required />
+                                <input class="appearance-none block w-full bg-white-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-objet" type="text" placeholder="Commande" required />
                             </div>
                         </div>
                     
@@ -101,7 +101,8 @@ const ContactUs = () => {
 
             </div>
             
-            <div class="bg-gradient-to-b from-gray-400 to-white-400 h-screen">
+            <div class=" bg-gradient-to-b from-gray-400 to-white-400 h-screen">
+                
                 <div class="pt-8 ...">
                     <div class="max-w-sm rounded overflow-hidden shadow-lg">
                         <div class="px-6 py-4">
@@ -110,6 +111,7 @@ const ContactUs = () => {
                                 Suivez nous pour avoir accès à des codes promotions exclusifs!
                             </p>
                         </div>
+                        
 
                         <div class="px-6 pt-4 pb-2">
 
@@ -152,6 +154,7 @@ const ContactUs = () => {
 
 
                         </div>
+                        <p> <img src="https://i.goopics.net/5rjoyv.png"  alt="Example1" width="300" height="300"  /> </p>
                     </div>
                 </div>
                 <div>
@@ -159,13 +162,11 @@ const ContactUs = () => {
 
                 </div>
 
-                <div class="grid place-items-center">
-                    <p> <img src="https://i.goopics.net/5rjoyv.png" alt="Example1" width="1000" height="800" /> </p>
-                </div>
+               
 
             </div>
             
-
+            
         </>
         
 

@@ -6,6 +6,7 @@ import Home from './Components/page/Home';
 import Landing from './Components/page/Landing';
 import ContactUs from './Components/page/ContactUs';
 import Test from './test';
+import Footer from './Components/footer/Footer';
 
 
 function App() {
@@ -14,19 +15,23 @@ function App() {
       <Switch>
         <Route exact path={Constant.PATHS.LANDING}>
           <Navbar />
+          
 
           <Landing />
         </Route>
         <Route exact path={Constant.PATHS.HOME}>
           <Navbar />
+          
 
           <Home />
         </Route>
         <Route exact path={Constant.PATHS.CONTACTUS}>
           <Navbar />
           
+          
           <ContactUs />
-         
+          <Footer/>
+          
         </Route>
         <Route exact path="/Test">
           <Test />
