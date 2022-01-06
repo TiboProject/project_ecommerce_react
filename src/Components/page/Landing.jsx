@@ -1,16 +1,83 @@
 import { Constant } from "../../Constant";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { motion, useAnimation } from "framer-motion";
-import { buttonArrowLanding, buttonReplayLanding, containerImages, firstCardLanding, imageBgLanding, imageLanding, imagesLanding, secondCardLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
-import { useEffect, useRef } from "react";
+import { AnimatePresence, motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
+import { buttonArrowLanding, buttonGridImages, buttonReplayLanding, containerGridImages, containerImages, firstCardLanding, firstImageGridLanding, firstImageLanding, gridImagesLanding, imageBgLanding, imageLanding, imagesLanding, lastImageLanding, lettersLanding, secondCardLanding, secondImageGridLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { VscSignIn } from "react-icons/vsc";
-import {MdOutlineReplay} from "react-icons/md";
+import { MdOutlineReplay } from "react-icons/md";
 import "./Landing.css"
 
-const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
+function Card(props) {
+    const x = useMotionValue(0);
+    const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
+    const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
+        clamp: false
+    });
+
+    function handleDragEnd(event, info) {
+        if (info.offset.x < -100) {
+            props.setExitX(-250);
+            props.setIndex(props.index + 1);
+        }
+        if (info.offset.x > 100) {
+            props.setExitX(250);
+            props.setIndex(props.index + 1);
+        }
+    }
+
+    return (
+        <motion.div
+            style={{
+                width: 150,
+                height: 150,
+                position: "absolute",
+                top: 0,
+                x: x,
+                rotate: rotate,
+                cursor: "grab"
+            }}
+            whileTap={{ cursor: "grabbing" }}
+            drag={props.drag}
+            dragConstraints={{
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }}
+            onDragEnd={handleDragEnd}
+            initial={props.initial}
+            animate={props.animate}
+            transition={props.transition}
+            exit={{
+                x: props.exitX,
+                opacity: 0,
+                scale: 0.5,
+                transition: { duration: 0.2 }
+            }}
+        >
+            <motion.div
+                style={{
+                    width: 200,
+                    height: 200,
+                    backgroundColor: "#fff",
+                    borderRadius: 30,
+                    scale: scale
+                }}>
+                    {props.text}
+                </motion.div>
+        </motion.div>
+    );
+}
+
+const Landing = ({ props, imageSrc, imageSrc2, imageSrc3 }) => {
+
+    const [index, setIndex] = useState(0);
+    const [exitX, setExitX] = useState("100%");
 
     ///States
+    const [replay, setReplay] = useState(true);
+
 
     ///Scrolling
     const firstScroll = useRef(null);
@@ -22,11 +89,22 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
     const controlsImageBackground = useAnimation();
     const controlsCards = useAnimation();
 
+
+    const controlsGridImages = useAnimation();
+
+    function executeReplay() {
+        setReplay(!replay);
+    }
+
     ///Intersection observer (element visible ou non)
+    ///Second image background
     const [refImageBackground, inViewImageBackground] = useInView();
+    ///both cards second page
     const [refCards, inViewCard] = useInView();
 
-    const windowWidth = window.innerWidth;
+
+    const [refGridImages, inViewGridImages] = useInView();
+
 
     useEffect(() => {
         if (inViewImageBackground) {
@@ -34,6 +112,9 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
         }
         if (inViewCard) {
             controlsCards.start("animate");
+        }
+        if (inViewGridImages) {
+            controlsGridImages.start("show");
         }
     });
 
@@ -206,63 +287,136 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                     </div>
                 </div>
             </div>
-            <motion.div
-                className="w-full h-screen relative"
-                variants={containerImages}
-                initial="hidden"
-                animate="show"
-            >
-                <motion.img
-                    src={imageSrc3}
-                    alt="fans"
-                    className="w-full h-full object-cover"
-                    variants={imageBgLanding}
-                >
-                </motion.img>
-                <div className="w-auto h-auto absolute top-1/4 left-28 max-w-full">
-                    <motion.img
-                        variants={imagesLanding}
-                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-sm rounded-3xl object-cover"
-                        src="https://i.goopics.net/1yvks1.jpg"
-                    />
-                    <div className="grid place-items-center">
-                        <motion.button 
-                        class="inline-flex items-center justify-center w-1/2 h-10 mr-2 transition-colors duration-150 bg-blue-900 rounded-full focus:shadow-outline hover:bg-blue-700"
-                        variants={buttonReplayLanding}
+            {
+                replay ? (
+                    <motion.div
+                        className="w-full h-screen relative"
+                        ref={refGridImages}
+                        variants={containerGridImages}
+                        initial="hidden"
+                        animate={controlsGridImages}
+                    >
+                        <motion.img
+                            src={imageSrc3}
+                            alt="fans"
+                            className="w-full h-full object-cover"
+                            variants={imageBgLanding}
                         >
-                        <MdOutlineReplay size={25} color="white"/>
-                        </motion.button>
-                    </div>
-                </div>
-                <div className="w-auto h-auto absolute bottom-14 right-48 max-w-full">
-                    <motion.img
-                        variants={imagesLanding}
-                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-md rounded-3xl object-cover"
-                        src="https://i.goopics.net/sb7lsy.jpg" />
-                </div>
-                <div className="w-auto h-auto absolute top-11 left-1/3 flex items-center justify-center max-w-full">
-                    <motion.img
-                        variants={imagesLanding}
-                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-lg rounded-3xl object-cover"
-                        src="https://i.goopics.net/4kk652.jpg"
-                    />
-                </div>
-                <div className="w-auto h-auto absolute top-14 right-28 max-w-full">
-                    <motion.img
-                        variants={imagesLanding}
-                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
-                        src="https://i.goopics.net/0n0ifp.jpg"
-                    />
-                </div>
-                <div className="w-auto h-auto absolute bottom-0 right-1/2 max-w-full">
-                    <motion.img
-                        variants={imagesLanding}
-                        className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
-                        src="https://i.goopics.net/bfneyl.jpg"
-                    />
-                </div>
+                        </motion.img>
+                        <div className="w-auto h-auto absolute top-1/4 left-28 max-w-full">
+                            <motion.img
+                                variants={firstImageGridLanding}
+                                className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-sm rounded-3xl object-cover"
+                                src="https://i.goopics.net/1yvks1.jpg"
+                            />
+                            <div className="grid place-items-center">
+                                <motion.button
+                                    onClick={executeReplay}
+                                    class="inline-flex items-center justify-center w-1/2 h-10 mr-2 transition-colors duration-150 bg-blue-900 rounded-full focus:shadow-outline hover:bg-blue-700"
+                                    variants={buttonGridImages}
+                                >
+                                    <MdOutlineReplay size={25} color="white" />
+                                </motion.button>
+                            </div>
+                        </div>
+                        <div className="w-auto h-auto absolute bottom-14 right-48 max-w-full">
+                            <motion.img
+                                variants={secondImageGridLanding}
+                                className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-md rounded-3xl object-cover"
+                                src="https://i.goopics.net/sb7lsy.jpg" />
+                        </div>
+                        <div className="w-auto h-auto absolute top-11 left-1/3 flex items-center justify-center max-w-full">
+                            <motion.img
+                                variants={gridImagesLanding}
+                                className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-lg rounded-3xl object-cover"
+                                src="https://i.goopics.net/4kk652.jpg"
+                            />
+                        </div>
+                        <div className="w-auto h-auto absolute top-14 right-28 max-w-full">
+                            <motion.img
+                                variants={gridImagesLanding}
+                                className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
+                                src="https://i.goopics.net/0n0ifp.jpg"
+                            />
+                        </div>
+                        <div className="w-auto h-auto absolute bottom-0 right-1/2 max-w-full">
+                            <motion.img
+                                variants={lastImageLanding}
+                                className="sm:flex-row flex-col sm:w-36 md:w-48 lg:w-full h-auto max-w-xs rounded-3xl object-cover"
+                                src="https://i.goopics.net/bfneyl.jpg"
+                            />
+                        </div>
 
-            </motion.div>
+                    </motion.div>
+                )
+
+                    :
+                    (
+                        <div
+                            className="w-full h-screen relative"
+                        >
+                            <motion.img
+                                src={imageSrc3}
+                                alt="fans"
+                                className="w-full h-full object-cover"
+                                variants={imageBgLanding}
+                            >
+                            </motion.img>
+
+                            <div className="w-auto h-auto absolute top-1/4 left-1/2 flex items-center justify-center max-w-full">
+
+                                <motion.div
+                                    style={{
+                                        width: 150,
+                                        height: 150,
+                                        position: "relative"
+                                    }}
+                                >
+                                    <AnimatePresence initial={false}>
+                                        <Card
+                                            key={index + 1}
+                                            initial={{ scale: 0, y: 105, opacity: 0 }}
+                                            animate={{ scale: 0.75, y: 30, opacity: 0.5 }}
+                                            transition={{
+                                                scale: { duration: 0.2 },
+                                                opacity: { duration: 0.4 }
+                                            }}
+                                            text="oui"
+                                        />
+                                        <Card
+                                            key={index}
+                                            animate={{ scale: 1, y: 0, opacity: 1 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 300,
+                                                damping: 20,
+                                                opacity: { duration: 0.2 }
+                                            }}
+                                            exitX={exitX}
+                                            setExitX={setExitX}
+                                            index={index}
+                                            setIndex={setIndex}
+                                            drag="x"
+                                            text="OUIIII"
+                                        />
+                                    </AnimatePresence>
+                                </motion.div>
+                            </div>
+
+                            <div className="w-auto h-auto left-1/2 absolute flex items-center justify-center bottom-1/4 ">
+                                <motion.button
+                                    onClick={executeReplay}
+                                    class="inline-flex items-center justify-center w-40 h-10 mr-2 transition-colors duration-150 bg-blue-900 rounded-full focus:shadow-outline hover:bg-blue-700"
+                                    variants={buttonGridImages}
+                                >
+                                    <MdOutlineReplay size={25} color="white" />
+                                </motion.button>
+                            </div>
+
+
+
+                        </div>)
+            }
 
 
         </>

@@ -103,7 +103,7 @@ export const secondImageLanding = {
     }
 }
 
-export const containerImages = {
+export const containerGridImages = {
     show: {
       transition: {
         staggerChildren: 1.0,
@@ -111,14 +111,64 @@ export const containerImages = {
     },
   };
 
-export const imagesLanding = {
+export const gridImagesLanding = {
     hidden: { opacity: 0, y: 200 },
     show: {
       opacity: 1,
       y: 0,
       transition: {
-        ease: [0.6, 0.01, -0.05, 0.95],
+        ease: [0.6, 0.01, 0.05, 0.95],
         duration: 1.0,
+      },
+    },
+  };
+
+  export const buttonGridImages = {
+    hidden: { opacity: 0, x: 200 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.0,
+      },
+    },
+  };
+
+  export const firstImageGridLanding = {
+    hidden: { opacity: 0, x: -200 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.0,
+      },
+    },
+    transform: {
+      scale: -1,
+    }
+  };
+
+  export const secondImageGridLanding = {
+    hidden: { opacity: 0, x: -200 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.0,
+      },
+    },
+  };
+
+  export const lastImageLanding = {
+    hidden: { opacity: 0},
+    show: {
+      opacity: 1,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.25,
       },
     },
   };
@@ -129,20 +179,8 @@ export const imagesLanding = {
       opacity: 1,
       x: 0,
       transition: {
-        ease: [0.6, 0.01, -0.05, 0.95],
+        ease: [0.6, 0.01, 0.05, 0.95],
         duration: 1.5,
-      },
-    },
-  };
-
-  export const buttonReplayLanding = {
-    hidden: { opacity: 0, y: 200 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 0.35,
       },
     },
   };
@@ -161,3 +199,16 @@ export const imagesLanding = {
         },
     },
 }
+
+export const lettersLanding = {
+  hidden: { opacity: 0, y: 200 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "linear",
+      delay: 0.4,
+      duration: 1.0,
+    },
+  },
+};
