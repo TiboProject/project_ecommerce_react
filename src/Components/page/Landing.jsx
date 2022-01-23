@@ -1,11 +1,12 @@
 import { Constant } from "../../Constant";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AnimatePresence, motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
-import { buttonArrowLanding, buttonGridImages, buttonReplayLanding, containerGridImages, containerImages, firstCardLanding, firstImageGridLanding, firstImageLanding, gridImagesLanding, imageBgLanding, imageLanding, imagesLanding, lastImageLanding, lettersLanding, secondCardLanding, secondImageGridLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, titleLanding } from "../../VariantsForMotion";
+import { buttonArrowLanding, buttonArrowWithoutUserLanding, buttonGridImages, buttonReplayLanding, containerGridImages, containerImages, firstCardLanding, firstImageGridLanding, firstImageLanding, gridImagesLanding, imageBgLanding, imageLanding, imagesLanding, lastImageLanding, lettersLanding, secondCardLanding, secondImageGridLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, thirdTextFirstImageLanding, titleLanding } from "../../VariantsForMotion";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { VscSignIn } from "react-icons/vsc";
 import { MdOutlineReplay } from "react-icons/md";
+import firebase from "firebase/compat/app";
 import "./Landing.css"
 
 function Card(props) {
@@ -64,13 +65,18 @@ function Card(props) {
                     borderRadius: 30,
                     scale: scale
                 }}>
-                    {props.text}
-                </motion.div>
+                {props.text}
+            </motion.div>
         </motion.div>
     );
 }
 
-const Landing = ({ props, imageSrc, imageSrc2, imageSrc3 }) => {
+const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
+
+
+    ///Firebase
+    console.log(firebase.auth().currentUser);
+
 
     const [index, setIndex] = useState(0);
     const [exitX, setExitX] = useState("100%");
@@ -121,64 +127,148 @@ const Landing = ({ props, imageSrc, imageSrc2, imageSrc3 }) => {
 
     return (
         <>
-            <div className="flex-auto w-full h-screen ">
-                <motion.img
-                    src={imageSrc}
-                    alt="fans"
-                    className="w-full h-full object-cover"
-                    variants={imageLanding}
-                    initial="initial"
-                    animate="animate"
-                >
-                </motion.img>
-                <div className="absolute top-64 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full ">
-                    <motion.div
-                        variants={textFirstImageLanding}
-                        initial="initial"
-                        animate="animate"
-                    >
-                        <motion.p
-                            className="text-center text-white italic font-mono font-semibold text-7xl"
-                            drag
-                            dragConstraints={{ left: -600, right: 600, top: -50, bottom: 700 }}
-                            dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
-                            whileHover={{ scale: 1.3 }}
-                            whileTap={{ scale: 0.9 }}>
-                            Bienvenue sur
-                        </motion.p>
-                    </motion.div>
-                    <motion.div
-                        variants={secondTextFirstImageLanding}
-                        initial="initial"
-                        animate="animate"
-                    >
-                        <motion.p
-                            className="text-center text-white italic font-mono text-7xl"
-                            drag
-                            dragConstraints={{ left: -600, right: 600, top: -50, bottom: 600 }}
-                            dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
-                            whileHover={{ scale: 1.3 }}
-                            whileTap={{ scale: 0.9 }}>
-                            Todax
-                        </motion.p>
-                    </motion.div>
-                    <div className="grid place-items-center">
-                        <motion.div
-                            variants={buttonArrowLanding}
+            {
+                firebase.auth().currentUser!==null ? (
+
+                    <div className="flex-auto w-full h-screen ">
+                        <motion.img
+                            src={imageSrc}
+                            alt="fans"
+                            className="w-full h-full object-cover"
+                            variants={imageLanding}
                             initial="initial"
                             animate="animate"
-
                         >
-                            <motion.button
-                                whileHover={{ scale: 1.2 }}
-                                onClick={executeScroll}
+                        </motion.img>
+                        <div className="absolute top-64 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full ">
+                            <motion.div
+                                variants={textFirstImageLanding}
+                                initial="initial"
+                                animate="animate"
                             >
-                                <RiArrowDownSLine size={90} color="#8A0C0C" />
-                            </motion.button>
-                        </motion.div>
+                                <motion.p
+                                    className="text-center text-white italic font-mono font-semibold text-7xl"
+                                    drag
+                                    dragConstraints={{ left: -600, right: 600, top: -50, bottom: 700 }}
+                                    dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
+                                    whileHover={{ scale: 1.3 }}
+                                    whileTap={{ scale: 0.9 }}>
+                                    Bienvenue sur
+                                </motion.p>
+                            </motion.div>
+                            <motion.div
+                                variants={secondTextFirstImageLanding}
+                                initial="initial"
+                                animate="animate"
+                            >
+                                <motion.p
+                                    className="text-center text-white italic font-mono text-7xl"
+                                    drag
+                                    dragConstraints={{ left: -600, right: 600, top: -50, bottom: 600 }}
+                                    dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
+                                    whileHover={{ scale: 1.3 }}
+                                    whileTap={{ scale: 0.9 }}>
+                                    Todax
+                                </motion.p>
+                                
+                            </motion.div>
+                            <motion.div
+                                variants={thirdTextFirstImageLanding}
+                                initial="initial"
+                                animate="animate"
+                            >
+                                <motion.p
+                                    className="text-center text-white italic font-mono text-7xl"
+                                    drag
+                                    dragConstraints={{ left: -600, right: 600, top: -50, bottom: 600 }}
+                                    dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
+                                    whileHover={{ scale: 1.3 }}
+                                    whileTap={{ scale: 0.9 }}>
+                                    {firebase.auth().currentUser}
+                                </motion.p>
+                                
+                            </motion.div>
+                            <div className="grid place-items-center">
+                                <motion.div
+                                    variants={buttonArrowLanding}
+                                    initial="initial"
+                                    animate="animate"
+
+                                >
+                                    <motion.button
+                                        whileHover={{ scale: 1.2 }}
+                                        onClick={executeScroll}
+                                    >
+                                        <RiArrowDownSLine size={90} color="#8A0C0C" />
+                                    </motion.button>
+                                </motion.div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )
+
+                    :
+                    (
+                        <div className="flex-auto w-full h-screen ">
+                            <motion.img
+                                src={imageSrc}
+                                alt="fans"
+                                className="w-full h-full object-cover"
+                                variants={imageLanding}
+                                initial="initial"
+                                animate="animate"
+                            >
+                            </motion.img>
+                            <div className="absolute top-64 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full ">
+                                <motion.div
+                                    variants={textFirstImageLanding}
+                                    initial="initial"
+                                    animate="animate"
+                                >
+                                    <motion.p
+                                        className="text-center text-white italic font-mono font-semibold text-7xl"
+                                        drag
+                                        dragConstraints={{ left: -600, right: 600, top: -50, bottom: 700 }}
+                                        dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
+                                        whileHover={{ scale: 1.3 }}
+                                        whileTap={{ scale: 0.9 }}>
+                                        Bienvenue sur
+                                    </motion.p>
+                                </motion.div>
+                                <motion.div
+                                    variants={secondTextFirstImageLanding}
+                                    initial="initial"
+                                    animate="animate"
+                                >
+                                    <motion.p
+                                        className="text-center text-white italic font-mono text-7xl"
+                                        drag
+                                        dragConstraints={{ left: -600, right: 600, top: -50, bottom: 600 }}
+                                        dragTransition={{ bounceStiffness: 400, bounceDamping: 10 }}
+                                        whileHover={{ scale: 1.3 }}
+                                        whileTap={{ scale: 0.9 }}>
+                                        Todax
+                                    </motion.p>
+                                </motion.div>
+                                <div className="grid place-items-center">
+                                    <motion.div
+                                        variants={buttonArrowWithoutUserLanding}
+                                        initial="initial"
+                                        animate="animate"
+
+                                    >
+                                        <motion.button
+                                            whileHover={{ scale: 1.2 }}
+                                            onClick={executeScroll}
+                                        >
+                                            <RiArrowDownSLine size={90} color="#8A0C0C" />
+                                        </motion.button>
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+            }
             <div ref={firstScroll} class="w-full h-screen relative">
                 <motion.img
                     ref={refImageBackground}

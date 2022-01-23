@@ -5,10 +5,11 @@ import Navbar from './Components/navbar/Navbar';
 import Home from './Components/page/Home';
 import Landing from './Components/page/Landing';
 import ContactUs from './Components/page/ContactUs';
-import Test from './test';
+import SignIn from './Components/page/SignIn';
 
-function App() {
+function App() {  
   return (
+
     <Router>
       <Switch>
         <Route exact path={Constant.PATHS.LANDING}>
@@ -23,9 +24,9 @@ function App() {
           <Navbar/>
           <ContactUs/>
         </Route>
-        <Route exact path="/Test">
-        <Test/>
-        </Route>
+        <Route exact path={Constant.PATHS.SIGNIN}>
+            <SignIn/>
+          </Route>
       </Switch>
     </Router>
   );

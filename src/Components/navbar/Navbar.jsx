@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Constant } from "../../Constant";
 import "./Navbar.css";
+import { firebase } from "../../firebase";
 
 const Navbar = () => {
+
+    
+
 
     ///menu ouvert
     const [isOpen, setIsOpen] = useState(false);
@@ -36,22 +40,23 @@ const Navbar = () => {
         <>
             {lastSlash === Constant.PATHS.LANDING
                 ?
-                    <nav className='sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30'>
-                        <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-4">
-                            <div className="flex items-center justify-between h-14">
-                                <div className="flex items-center">
-                                    <div className="flex-shrink-0">
-                                        <a
-                                            href={Constant.PATHS.HOME}
-                                            className="text-gray-300 font-extrabold font-sans text-xl"
-                                        >
-                                            Accueil
-                                        </a>
-                                    </div>
+                <nav className='sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30'>
+                    <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-4">
+                        <div className="flex items-center justify-between h-14">
+                            <div className="flex items-center">
+                                <div className="flex-shrink-0">
+                                    <a
+                                        href={Constant.PATHS.HOME}
+                                        className="text-gray-300 font-extrabold font-sans text-xl"
+                                    >
+                                        Accueil
+                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </nav>
+                    </div>
+                </nav>
                 :
                 <nav className='bg-gray-800 '>
                     <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8">
