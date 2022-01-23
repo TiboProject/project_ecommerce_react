@@ -47,7 +47,7 @@ export const thirdTextFirstImageLanding = {
     animate: {
       y: 0,
       opacity: 1,
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], delay:2.0, duration: 2.75 }
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], delay:3.0, duration: 2.75 }
     }
 }
 

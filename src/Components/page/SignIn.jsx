@@ -1,27 +1,29 @@
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useEffect, useState } from "react";
-import { firebase } from '../../firebase';
+import firebase from "firebase/compat";
 
 const SignIn = () => {
   const [isUserSignedIn, setIsSignedIn] = useState(false);
 
   const uiConfig = {
     signInFlow: "popup",
+    signInSuccessUrl: '/',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
-      signInSuccessWithAuthResult: () => false,
+      signInSuccessWithAuthResult: () => true,
     },
   };
 
   useEffect(() => {
-    firebase.auth.onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       setIsSignedIn(!!user);
       console.log(user);
     });
   }, []);
+
 
   const signOut = () => {
     firebase.auth().signOut();
