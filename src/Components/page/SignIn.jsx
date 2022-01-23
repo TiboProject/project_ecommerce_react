@@ -24,7 +24,6 @@ const SignIn = () => {
     });
   }, []);
 
-
   const signOut = () => {
     firebase.auth().signOut();
   }
