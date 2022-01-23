@@ -1,15 +1,14 @@
-import Card from "../image/Card";
-import Formu from "../image/Formu";
-
+import Formu from "../form/Formu";
+import Card from "../card/Card";
 
 const ContactUs = () => {
     return (
         <>
             <div class="bg-gradient-to-b from-gray-800 to-gray-400 h-screen">
-                <Formu imgageSrc="https://i.goopics.net/rzx0vd.png" firstText="oui" secondText="oui12" />
+                <Formu  />
             </div>
             <div class=" bg-gradient-to-b from-gray-400 to-white-400 h-screen">
-                <Card imageSrc="https://i.goopics.net/7z34yb.jpg" firstText="oui" secondText="oui12" />
+                <Card Firstexte="Suivez nous sur nos réseaux" Fipan="-Linkedin" Fpan="-Twitter" Firstpan="Facebook" Span="-Instagram" Tpan="-Youtube" imgSrc="https://i.goopics.net/7z34yb.jpg"/>
             </div>
         </>
     )
