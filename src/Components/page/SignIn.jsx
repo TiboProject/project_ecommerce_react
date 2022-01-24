@@ -1,6 +1,6 @@
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useEffect, useState } from "react";
-import firebase from "firebase/compat";
+import {firebase} from "../../firebase";
 
 const SignIn = () => {
   const [isUserSignedIn, setIsSignedIn] = useState(false);
@@ -12,9 +12,6 @@ const SignIn = () => {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
-    callbacks: {
-      signInSuccessWithAuthResult: () => true,
-    },
   };
 
   useEffect(() => {

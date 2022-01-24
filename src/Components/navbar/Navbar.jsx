@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Constant } from "../../Constant";
 import "./Navbar.css";
-import { firebase } from "../../firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Navbar = () => {
-
-    
-
 
     ///menu ouvert
     const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +11,18 @@ const Navbar = () => {
     var location = document.location.href;
     ///ne prend que la fin de l'url
     var lastSlash = location.substring(location.lastIndexOf("/"));
-
+    
+    const [isSignedIn, setIsSigned] = useState(false);
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setIsSigned(true);
+        } else {
+            setIsSigned(false);
+        }
+    });
 
     var priceFinal = 0;
-
 
     const listItems = [
         {
@@ -150,13 +155,27 @@ const Navbar = () => {
                                                 </div>
                                             )
                                         }
+                                        {
+                                            isSignedIn?
+                                            (
+                                                <button
+                                                type="button"
+                                                className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
+                                            >
+                                                Votre compte
+                                            </button>
+                                            )  
+                                            :
+                                            (
+                                                <button
+                                                type="button"
+                                                className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
+                                            >
+                                                Se connecter
+                                            </button>
+                                            ) 
 
-                                        <button
-                                            type="button"
-                                            className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
-                                        >
-                                            Se connecter
-                                        </button>
+                                        }
                                     </div>
                                 </div>
                             </div>
