@@ -3,6 +3,7 @@ export const Constant={
         LANDING : "/",
         HOME : "/home",
         CONTACTUS : "/contact_us",
-        SIGNIN: "/signin"
+        SIGNIN: "/signin",
+        ACCOUNT: "/account"
         }
 }

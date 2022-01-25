@@ -14,12 +14,14 @@ const Navbar = () => {
     
     const [isSignedIn, setIsSigned] = useState(false);
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setIsSigned(true);
-        } else {
-            setIsSigned(false);
-        }
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsSigned(true);
+            } else {
+                setIsSigned(false);
+            }
+        });
     });
 
     var priceFinal = 0;
@@ -161,8 +163,9 @@ const Navbar = () => {
                                                 <button
                                                 type="button"
                                                 className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
-                                            >
+                                            ><a href={Constant.PATHS.ACCOUNT}>
                                                 Votre compte
+                                            </a>
                                             </button>
                                             )  
                                             :
@@ -170,8 +173,9 @@ const Navbar = () => {
                                                 <button
                                                 type="button"
                                                 className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
-                                            >
+                                            ><a href={Constant.PATHS.SIGNIN}>
                                                 Se connecter
+                                            </a>
                                             </button>
                                             ) 
 
