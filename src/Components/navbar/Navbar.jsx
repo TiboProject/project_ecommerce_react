@@ -11,10 +11,10 @@ const Navbar = () => {
     var location = document.location.href;
     ///ne prend que la fin de l'url
     var lastSlash = location.substring(location.lastIndexOf("/"));
-    
+
     const [isSignedIn, setIsSigned] = useState(false);
     const auth = getAuth();
-    useEffect(()=>{
+    useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setIsSigned(true);
@@ -58,7 +58,7 @@ const Navbar = () => {
                                     >
                                         Accueil
                                     </a>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -158,26 +158,26 @@ const Navbar = () => {
                                             )
                                         }
                                         {
-                                            isSignedIn?
-                                            (
-                                                <button
-                                                type="button"
-                                                className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
-                                            ><a href={Constant.PATHS.ACCOUNT}>
-                                                Votre compte
-                                            </a>
-                                            </button>
-                                            )  
-                                            :
-                                            (
-                                                <button
-                                                type="button"
-                                                className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
-                                            ><a href={Constant.PATHS.SIGNIN}>
-                                                Se connecter
-                                            </a>
-                                            </button>
-                                            ) 
+                                            isSignedIn ?
+                                                (
+                                                    <button
+                                                        type="button"
+                                                        className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
+                                                    ><a href={Constant.PATHS.ACCOUNT}>
+                                                            Votre compte
+                                                        </a>
+                                                    </button>
+                                                )
+                                                :
+                                                (
+                                                    <button
+                                                        type="button"
+                                                        className="text-gray-300 font-mono rounded border-2 px-3 py-2 hover:bg-white hover:text-gray-800"
+                                                    ><a href={Constant.PATHS.SIGNIN}>
+                                                            Se connecter
+                                                        </a>
+                                                    </button>
+                                                )
 
                                         }
                                     </div>
@@ -259,12 +259,26 @@ const Navbar = () => {
                                 >
                                     Voir mon panier
                                 </a>
-                                <a
-                                    href="https://github.com/TiboProject/project_ecommerce_react"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Se connecter
-                                </a>
+                                {
+                                    isSignedIn ?
+                                        (
+                                            <a
+                                                href={Constant.PATHS.ACCOUNT}
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                            >
+                                                Mon compte
+                                            </a>
+                                        )
+                                        :
+                                        (
+                                            <a
+                                                href={Constant.PATHS.SIGNIN}
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                            >
+                                                Se connecter
+                                            </a>
+                                        )
+                                }
                             </div>
                         </div>
                     )}

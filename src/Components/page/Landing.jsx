@@ -380,7 +380,7 @@ const Landing = ({ imageSrc, imageSrc2, imageSrc3 }) => {
                                     <div class="p-3  mt-2 text-center space-x-4 md:block">
                                         <motion.a
                                             whileHover={{ scale: 1.2 }}
-                                            href={Constant.PATHS.HOME}
+                                            href={Constant.PATHS.ACCOUNT}
                                             className="mb-2 md:mb-0 bg-red-800 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
                                         >
                                             En profiter
