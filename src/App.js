@@ -37,9 +37,6 @@ function App() {
           <Navbar/>
           <Account />
         </Route>
-        <Route exact path="/Test">
-        <Test/>
-        </Route>
       </Switch>
     </Router>
   );
