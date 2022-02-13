@@ -1,4 +1,3 @@
-import { Constant } from "../../Constant";
 import Tableur from "../bout/Tableur";
 
 const Card = ({ imgSrc, Firstexte}) => {

@@ -1,10 +1,8 @@
 import { Constant } from "../../Constant";
-import { RiArrowDownSLine } from "react-icons/ri";
 import { AnimatePresence, motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
-import { buttonArrowLanding, buttonArrowWithoutUserLanding, buttonGridImages, buttonReplayLanding, containerGridImages, containerImages, firstCardLanding, firstImageGridLanding, firstImageLanding, gridImagesLanding, imageBgLanding, imageLanding, imagesLanding, lastImageLanding, lettersLanding, secondCardLanding, secondImageGridLanding, secondImageLanding, secondTextFirstImageLanding, textFirstImageLanding, thirdTextFirstImageLanding, titleLanding } from "../../VariantsForMotion";
+import { buttonGridImages, containerGridImages, firstCardLanding, firstImageGridLanding, gridImagesLanding, imageBgLanding, secondCardLanding, secondImageGridLanding, secondImageLanding, titleLanding } from "../../VariantsForMotion";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { VscSignIn } from "react-icons/vsc";
 import { MdOutlineReplay } from "react-icons/md";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "./Landing.css"

@@ -102,7 +102,7 @@ const Navbar = () => {
                                             A propos de nous
                                         </a>
                                         {
-                                            lastSlash != Constant.PATHS.LANDING && (
+                                            lastSlash !== Constant.PATHS.LANDING && (
                                                 <div class="dropdown inline-block relative">
                                                     <button class="text-gray-700 font-semibold py-2 px-4 inline-flex">
                                                         <div slot="icon" class="relative">
